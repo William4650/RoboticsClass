@@ -87,7 +87,7 @@ task main()
 	openClaw();
 	moveArmUp(25, 250);
 	moveForward(90,900);
-  turnLeft(50, 1600);
+  	turnLeft(50, 1600);
 	moveForward(90,2400);
 	turnRight(50,1500);
 	moveForward(90,1250);
