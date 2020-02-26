@@ -119,6 +119,15 @@ void driveControl(int leftStick, int rightStick) {
 }
 
 
+void autonomous1(int autoSpeed, int autoWaitTime) {
+	moveForward(autoSpeed, autoWaitTime);
+}
+
+void autonomous2(int speed) {
+
+}
+
+
 task main {
 	while() {
 
