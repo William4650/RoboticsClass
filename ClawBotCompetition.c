@@ -91,12 +91,18 @@ void openClawFor()
 
 void closeClaw(int speed) {
 	motor[clawMotor] = 70;
-	resetMotor();
 }
 
 void openClaw(int speed) {
 	motor[clawMotor] = -70;
-	resetMotor();
+}
+
+void stopArm() {
+	motor[armMotor] = 0;
+}
+
+void stopClaw() {
+	motor[clawMotor] = 0;
 }
 
 void moveForward(int speed, int waitTime)
@@ -133,13 +139,13 @@ task main {
 
 		if (vexRT[Btn7U] && vexRT[Btn8U]) {
 
-			autonomous1();
+//			autonomous1();
 
 		}
 
 		if (vexRT[Btn7D] && vexRT[Btn8D]) {
 
-			autonomous2();
+	//		autonomous2();
 
 		}
 
@@ -160,7 +166,11 @@ task main {
 			moveArmUp(50);
 			//movingArm = true;
 
-			}
+		} else if (vexRT[Btn5U] == false) {
+			stopArm();
+	}	else if (vexRT[Btn5D] == false) {
+		stopArm();
+}
 
 
 		//Move Claw
@@ -171,7 +181,11 @@ task main {
 		else if (vexRT[Btn6U])
 		{
 			openClaw(30);
-		}
+		} else if (vexRT[Btn6D] == false) {
+		stopClaw();
+	} else if (vexRT[Btn6U] == false) {
+	stopClaw();
+}
 
 	}
 }
