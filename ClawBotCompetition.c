@@ -67,11 +67,11 @@ void turnRight(int speed, int waitTime)
 	resetMotor();
 }
 
-void moveArmDown(int speed,)
+void moveArmDown(int speed)
 {
 	if (movingArm == false) {
-	motor[armMotor] = -1 * speed;
-}
+		motor[armMotor] = -1 * speed;
+	}
 }
 
 void closeClawFor()
@@ -118,18 +118,31 @@ void driveControl(int leftStick, int rightStick) {
 
 }
 
-
-void autonomous1(int autoSpeed, int autoWaitTime) {
-	moveForward(autoSpeed, autoWaitTime);
+//These are multiplied, put in seconds not milliseconds
+void autonomous1() {
+	moveForward(40, 10000);
 }
 
-void autonomous2(int speed) {
-
+void autonomous2() {
+	moveForward(40, 10000);
 }
 
 
 task main {
 	while() {
+
+		if (vexRT[Btn7U] && vexRT[Btn8U]) {
+
+			autonomous1();
+
+		}
+
+		if (vexRT[Btn7D] && vexRT[Btn8D]) {
+
+			autonomous2();
+
+		}
+
 
 		driveControl(vexRT[Ch2], vexRT[Ch3]);
 
